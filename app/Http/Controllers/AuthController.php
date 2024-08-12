@@ -21,10 +21,9 @@ class AuthController extends Controller
             throw ValidationException::withMessages([
                 'email' => ['The provided credentials are incorrect.'],
             ]);
-        }     
-        return response()->json([
-            "token"=> $user->createToken($request->email)->plainTextToken
-        ]);
+        }    
+        
+        return $this->success('',["token" => $user->createToken($request->email)->plainTextToken]);
     }
 
     public function register(){
@@ -33,6 +32,10 @@ class AuthController extends Controller
     public function logout()
     {
 
+    }
+
+    public function changePassword(){
+        
     }
 
     public function user(Request $request){

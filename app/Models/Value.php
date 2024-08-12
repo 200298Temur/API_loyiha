@@ -17,8 +17,8 @@ class Value extends Model
 
     public $translatable = ['name'];
 
-    public function attribute():BelongsTo
+    public function valueable():BelongsTo
     {
-        return $this->belongsTo(Attribute::class);
+       return $this->morphTo();
     }
 }

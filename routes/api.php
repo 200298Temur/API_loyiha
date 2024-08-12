@@ -10,10 +10,13 @@ use App\Http\Controllers\PaymentTypeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductReviewController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\StatusOrderController;
 use App\Http\Controllers\UserAddressController;
 use App\Http\Controllers\UserPaymentCardsController;
+use App\Http\Controllers\UserSettingController;
+use App\Models\UserSetting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -28,6 +31,7 @@ Route::post('login',[AuthController::class,'login']);
 Route::post('logout',[AuthController::class,'logout']);
 
 Route::post('register',[AuthController::class,'register']);
+Route::post('change-password',[AuthController::class,'changePassword']);
 Route::get('user',[AuthController::class,'user'])->middleware('auth:sanctum');
 
 Route::apiResource('categories', CategoryController::class);
@@ -45,3 +49,6 @@ Route::apiResource('statuses.orders', StatusOrderController::class);
 
 Route::apiResource('reviews',ReviewController::class)->middleware('auth:sanctum');
 Route::apiResource('products.reviews',ProductReviewController::class)->middleware('auth:sanctum');
+
+Route::apiResource('settings',SettingController::class);
+Route::apiResource('user-settings',UserSettingController::class)->middleware('auth:sanctum');
