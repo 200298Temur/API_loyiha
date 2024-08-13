@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryProductController;
 use App\Http\Controllers\DeliveryMethodController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PaymentCardTypeController;
 use App\Http\Controllers\PaymentTypeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductReviewController;
@@ -16,6 +17,7 @@ use App\Http\Controllers\StatusOrderController;
 use App\Http\Controllers\UserAddressController;
 use App\Http\Controllers\UserPaymentCardsController;
 use App\Http\Controllers\UserSettingController;
+use App\Models\PaymentCardType;
 use App\Models\UserSetting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -42,7 +44,6 @@ Route::apiResource('orders', OrderController::class)->middleware('auth:sanctum')
 Route::apiResource('delivet-methods', DeliveryMethodController::class);
 Route::apiResource('payment-types', PaymentTypeController::class);
 Route::apiResource('user-addresses', UserAddressController::class)->middleware('auth:sanctum');
-Route::apiResource('user-payment-cards', UserPaymentCardsController::class);
 
 Route::apiResource('statuses', StatusController::class)->middleware('auth:sanctum');
 Route::apiResource('statuses.orders', StatusOrderController::class);
@@ -52,3 +53,5 @@ Route::apiResource('products.reviews',ProductReviewController::class)->middlewar
 
 Route::apiResource('settings',SettingController::class);
 Route::apiResource('user-settings',UserSettingController::class)->middleware('auth:sanctum');
+Route::apiResource('payment-card-types',PaymentCardTypeController::class)->middleware('auth:sanctum');
+Route::apiResource('user-payment-cards', UserPaymentCardsController::class)->middleware('auth:sanctum');
