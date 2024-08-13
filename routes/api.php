@@ -36,6 +36,8 @@ Route::post('register',[AuthController::class,'register']);
 Route::post('change-password',[AuthController::class,'changePassword']);
 Route::get('user',[AuthController::class,'user'])->middleware('auth:sanctum');
 
+Route::get('products/{product}/releted',[ProductController::class,'releted']);
+
 Route::apiResource('categories', CategoryController::class);
 Route::apiResource('products', ProductController::class);
 Route::apiResource('categories.products', CategoryProductController::class);
