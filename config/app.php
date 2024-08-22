@@ -123,4 +123,11 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    // 'providers' => [
+    //     // Boshqa provayderlar
+    //     App\Providers\RouteServiceProvider::class,
+    // ],
+
+
 ];
+

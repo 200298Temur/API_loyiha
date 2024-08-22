@@ -38,7 +38,7 @@ class OrderController extends Controller
 
 
 
-    public function store(StoreOrderRequest $request):JsonResource
+    public function store(StoreOrderRequest $request)
 {
     $sum = 0;
     $products = [];

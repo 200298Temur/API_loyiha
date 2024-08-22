@@ -17,7 +17,7 @@ class FavoriteController extends Controller
         public function store(Request $request){
            
             $user = auth()->user()->favorites()->attach($request->product_id);
-            return $this->success('user auth',$user)
+            return $this->success('user auth',$user);
 
         }
 

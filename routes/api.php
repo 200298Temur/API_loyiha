@@ -17,21 +17,24 @@ use App\Http\Controllers\StatusOrderController;
 use App\Http\Controllers\UserAddressController;
 use App\Http\Controllers\UserPaymentCardsController;
 use App\Http\Controllers\UserSettingController;
-use App\Models\PaymentCardType;
-use App\Models\UserSetting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 
+// Route::middleware('auth:api')->group(function () {
+//     Route::get('/dashboard', function () {
+//         return response()->json(['message' => 'Welcome to API Dashboard']);
+//     });
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:sanctum');
+// });
+ 
+ 
+require __DIR__.'/admin.php';
+
 
 
 Route::post('login',[AuthController::class,'login']);
 Route::post('logout',[AuthController::class,'logout']);
-
 Route::post('register',[AuthController::class,'register']);
 Route::post('change-password',[AuthController::class,'changePassword']);
 Route::get('user',[AuthController::class,'user'])->middleware('auth:sanctum');
