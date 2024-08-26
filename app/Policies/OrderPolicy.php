@@ -29,7 +29,7 @@ class OrderPolicy
      */
     public function create(User $user): bool
     {
-        //
+        return $user->hasRole('customer') || $user->hasPermissionTo('order:create'); 
     }
 
     /**
@@ -45,7 +45,11 @@ class OrderPolicy
      */
     public function delete(User $user, Order $order): bool
     {
-        //
+        if($user->hasRole('customer')){
+            return $order->user_id=$user->id && $order->status_id ==1 ;
+        }else{
+            $user->hasPermissionTo('order:delete');
+        }
     }
 
     /**

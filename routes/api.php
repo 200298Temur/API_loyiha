@@ -45,7 +45,9 @@ Route::apiResource('categories', CategoryController::class);
 Route::apiResource('products', ProductController::class);
 Route::apiResource('categories.products', CategoryProductController::class);
 Route::apiResource('favorites', FavoriteController::class)->middleware('auth:sanctum');
+
 Route::apiResource('orders', OrderController::class)->middleware('auth:sanctum');
+
 Route::apiResource('delivet-methods', DeliveryMethodController::class);
 Route::apiResource('payment-types', PaymentTypeController::class);
 Route::apiResource('user-addresses', UserAddressController::class)->middleware('auth:sanctum');

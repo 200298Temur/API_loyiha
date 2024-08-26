@@ -14,7 +14,7 @@ class UserAddressSeeder extends Seeder
      */
     public function run(): void
     {
-        User::find(5)->addresses()->create([
+        User::find(2)->addresses()->create([
             "latitude"=>"40.133328",
             "longitude"=>"67.822777",
             "region"=>"Джизак",
@@ -23,7 +23,7 @@ class UserAddressSeeder extends Seeder
             "home"=>"11"
         ]);
 
-        User::find(5)->addresses()->create([
+        User::find(2)->addresses()->create([
             "latitude"=>"40.133328",
             "longitude"=>"67.822777",
             "region"=>"Джизак",

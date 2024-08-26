@@ -22,13 +22,31 @@ class UserSeeder extends Seeder
             "phone" => '+998976454560',
             "password" => Hash::make("password"),
         ]);
+        $admin->assignRole('admin');
 
-        // Attach the admin role to the admin user
-        $admin->roles()->syncWithoutDetaching([1]); // Assuming role ID 1 is for admin
+        $user1=User::create([
+            "first_name" => "Samir",
+            "last_name" => "Usmonov",
+            "email" => "samir@com.uz",
+            "phone" => '+998990999977',
+            "password" => Hash::make("password"),
+        ]);
+        $user1->assignRole('customer');
 
-        // Create 10 regular users and attach a regular role to each
-        User::factory(10)->create()->each(function ($user) {
-            $user->roles()->attach(2); // Assuming role ID 2 is for regular users
-        });
+        $user2=User::create([
+            "first_name" => "Sara",
+            "last_name" => "Gomez",
+            "email" => "sara@gmail.com",
+            "phone" => '+998991999977',
+            "password" => Hash::make("password"),
+        ]);
+        $user2->assignRole('editor');
+        
+      
+        $users=User::factory()->count(10)->create();
+        foreach($users as $user)
+        {
+            $user->assignRole('customer');
+        }
     }
 }
